@@ -12,7 +12,10 @@ import {
   Target,
   Layers,
   Flame,
-  Menu
+  Menu,
+  Copy,
+  ExternalLink,
+  KeyRound
 } from 'lucide-react';
 
 import avatarFounder from './assets/images/avatar_african_founder_1790161357336.jpg';
@@ -114,6 +117,16 @@ export default function App() {
   const [orderName, setOrderName] = useState('');
   const [orderPhone, setOrderPhone] = useState('');
   const [orderSuccess, setOrderSuccess] = useState(false);
+  const [copiedCode, setCopiedCode] = useState(false);
+
+  const IKIGAI_LINK = "https://claude.ai/artifact/BpdY4QbpMetSiea76WMKNh";
+  const IKIGAI_CODE = "FOCUS2026";
+
+  const handleCopyCode = () => {
+    navigator.clipboard.writeText(IKIGAI_CODE);
+    setCopiedCode(true);
+    setTimeout(() => setCopiedCode(false), 2500);
+  };
 
   const handleOpenOffer = (offer: Offer) => {
     setSelectedOffer(offer);
@@ -553,6 +566,46 @@ export default function App() {
                           </div>
                         ))}
                       </div>
+
+                      {/* Message spécifique pour l'Offre 1 : Accès Ikigai */}
+                      {offer.id === 'skill' && (
+                        <div className="mb-6 p-4 rounded-2xl bg-[#FF5500]/10 border border-[#FF5500]/30 text-left">
+                          <div className="flex items-center gap-2 text-xs font-bold text-[#FF5500] uppercase tracking-wider mb-2">
+                            <KeyRound className="w-4 h-4" />
+                            <span>Accès immédiat</span>
+                          </div>
+                          <p className="text-xs text-slate-200 leading-relaxed mb-3">
+                            Voici ton accès à Ikigai. À présent clique sur ce lien et entre ce code. Ensuite suis les directives de l'assistant pour trouver ta compétence.
+                          </p>
+
+                          <div className="space-y-2.5 pt-2 border-t border-[#FF5500]/20 text-xs">
+                            <div className="flex items-center justify-between gap-2 p-2 rounded-lg bg-[#090A0E] border border-white/10">
+                              <span className="text-slate-400">Code :</span>
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono font-bold text-[#FF5500] tracking-wider text-sm">{IKIGAI_CODE}</span>
+                                <button
+                                  type="button"
+                                  onClick={handleCopyCode}
+                                  className="p-1 hover:text-white text-slate-400 transition-colors"
+                                  title="Copier le code"
+                                >
+                                  {copiedCode ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                                </button>
+                              </div>
+                            </div>
+
+                            <a
+                              href={IKIGAI_LINK}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full py-2 px-3 rounded-lg bg-[#FF5500] hover:bg-[#E64D00] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                            >
+                              <span>Ouvrir l'assistant Ikigai</span>
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </a>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     {/* CTA Button */}
@@ -817,6 +870,47 @@ export default function App() {
                   {selectedOffer.tagline}
                 </p>
 
+                {/* Special notification banner for Offer 1 */}
+                {selectedOffer.id === 'skill' && (
+                  <div className="mb-6 p-4 rounded-2xl bg-[#FF5500]/10 border border-[#FF5500]/30 text-left">
+                    <div className="flex items-center gap-2 text-xs font-bold text-[#FF5500] uppercase tracking-wider mb-2">
+                      <KeyRound className="w-4 h-4" />
+                      <span>Accès Ikigai immédiat</span>
+                    </div>
+                    <p className="text-xs text-slate-200 leading-relaxed mb-3 font-medium">
+                      voici ton accès à Ikigai. A présent clique sur ce lien et entre ce code . ensuite suis les directives de l'assistant pour trouver ta compétence
+                    </p>
+                    <div className="space-y-2 pt-2 border-t border-[#FF5500]/20 text-xs">
+                      <div className="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-[#090A0E] border border-white/10">
+                        <span className="text-slate-400">Code à entrer :</span>
+                        <div className="flex items-center gap-2">
+                          <code className="font-mono font-bold text-[#FF5500] tracking-wider text-sm px-1.5 py-0.5 rounded bg-white/5">
+                            {IKIGAI_CODE}
+                          </code>
+                          <button
+                            type="button"
+                            onClick={handleCopyCode}
+                            className="p-1 hover:text-white text-slate-400 transition-colors"
+                            title="Copier le code"
+                          >
+                            {copiedCode ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                          </button>
+                        </div>
+                      </div>
+
+                      <a
+                        href={IKIGAI_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-2.5 px-3 rounded-lg bg-[#FF5500] hover:bg-[#E64D00] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                      >
+                        <span>Cliquer ici pour accéder à l'assistant Ikigai</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                )}
+
                 {/* Price summary */}
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 flex items-center justify-between">
                   <span className="text-sm text-slate-300">Total à régler (unique)</span>
@@ -910,6 +1004,46 @@ export default function App() {
                 <p className="text-slate-300 text-sm leading-relaxed mb-6">
                   Merci <strong>{orderName}</strong>. Notre conseiller t'envoie immédiatement le lien de paiement sécurisé ({paymentMethod.toUpperCase()}) sur ton numéro WhatsApp <strong>{orderPhone}</strong>.
                 </p>
+
+                {(selectedOffer.id === 'skill' || selectedOffer.id === 'bundle') && (
+                  <div className="mb-6 p-4 rounded-2xl bg-[#FF5500]/10 border border-[#FF5500]/30 text-left">
+                    <div className="flex items-center gap-2 text-xs font-bold text-[#FF5500] uppercase tracking-wider mb-2">
+                      <KeyRound className="w-4 h-4" />
+                      <span>Accès Ikigai immédiat</span>
+                    </div>
+                    <p className="text-xs text-slate-200 leading-relaxed mb-3">
+                      voici ton accès à Ikigai. A présent clique sur ce lien et entre ce code . ensuite suis les directives de l'assistant pour trouver ta compétence
+                    </p>
+                    <div className="space-y-2 pt-2 border-t border-[#FF5500]/20 text-xs">
+                      <div className="flex items-center justify-between gap-2 p-2 rounded-lg bg-[#090A0E] border border-white/10">
+                        <span className="text-slate-400">Code à entrer :</span>
+                        <div className="flex items-center gap-2">
+                          <code className="font-mono font-bold text-[#FF5500] tracking-wider text-sm px-1.5 py-0.5 rounded bg-white/5">
+                            {IKIGAI_CODE}
+                          </code>
+                          <button
+                            type="button"
+                            onClick={handleCopyCode}
+                            className="p-1 hover:text-white text-slate-400 transition-colors"
+                            title="Copier le code"
+                          >
+                            {copiedCode ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                          </button>
+                        </div>
+                      </div>
+
+                      <a
+                        href={IKIGAI_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-2.5 px-3 rounded-lg bg-[#FF5500] hover:bg-[#E64D00] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                      >
+                        <span>Cliquer ici pour accéder à l'assistant Ikigai</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                )}
                 <div className="space-y-3">
                   <a
                     href={`https://wa.me/?text=Bonjour,%20j%27ai%20validé%20ma%20commande%20"${encodeURIComponent(selectedOffer.name)}"%20sur%20Focus%20One.%20Mon%20nom%20est%20${encodeURIComponent(orderName)}`}
