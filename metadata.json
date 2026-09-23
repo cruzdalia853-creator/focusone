@@ -1,0 +1,6 @@
+{
+  "name": "Focus One",
+  "description": "Plateforme d'accompagnement pour entrepreneurs digitaux africains : identifie ta compétence unique et construis un profil réseaux sociaux magnétique.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
