@@ -1,33 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --font-display: 'Clash Display', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  }
-
-  body {
-    font-family: var(--font-body);
-    background-color: #090A0E;
-    color: #F1F5F9;
-    overflow-x: hidden;
-  }
-
-  h1, h2, h3, h4, .font-display {
-    font-family: var(--font-display);
-    letter-spacing: -0.025em;
-  }
+/* Direct local Bricolage Grotesque WOFF2 font-face definitions */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/fonts/BricolageGrotesque-Variable.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Custom subtle utility styles */
-.accent-glow {
-  box-shadow: 0 0 35px -5px rgba(255, 85, 0, 0.25);
+@theme {
+  --font-sans: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-bricolage: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-clash: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.card-border {
+:root {
+  --font-bricolage: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-accent-blue: #2545FF;
+}
+
+/* Enforce Bricolage Grotesque on ALL texts without exception */
+*, *::before, *::after, html, body, #root, button, input, textarea, select, h1, h2, h3, h4, h5, h6, p, span, a, li, blockquote, code {
+  font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+html, body {
+  background-color: #060713;
+  color: #F1F5F9;
+  overflow-x: hidden;
+}
+
+/* Universal typography utilities */
+.font-bricolage,
+.font-clash,
+.font-friendful,
+.font-sans,
+.font-display,
+.font-numbers {
+  font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.font-numbers {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Accented words in italic as requested */
+.font-accented,
+.font-moanslight,
+.accented-word,
+em,
+i {
+  font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-style: italic !important;
+  font-synthesis: style weight !important;
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.025em;
+}
+
+/* Glassmorphism system with pure blue aesthetics */
+.glass-panel {
+  background: rgba(10, 13, 28, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
 }
 
-.card-border-active {
-  border: 1px solid rgba(255, 85, 0, 0.45);
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.glass-panel-hover:hover {
+  background: rgba(16, 21, 46, 0.78);
+  border-color: rgba(37, 69, 255, 0.35);
+  box-shadow: 0 16px 44px 0 rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.glass-panel-accent {
+  background: linear-gradient(145deg, rgba(37, 69, 255, 0.16) 0%, rgba(8, 11, 26, 0.78) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(37, 69, 255, 0.45);
+  box-shadow: 0 12px 40px 0 rgba(37, 69, 255, 0.2), inset 0 1px 0 0 rgba(80, 120, 255, 0.3);
+}
+
+.glass-header {
+  background: rgba(6, 7, 19, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-chip {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-modal {
+  background: rgba(8, 10, 24, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(37, 69, 255, 0.25);
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.85), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Subtle ambient glows */
+.accent-glow {
+  box-shadow: 0 0 35px -5px rgba(37, 69, 255, 0.35);
+}
+
+/* Background animation keyframes */
+@keyframes floatSlow1 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.75;
+  }
+  33% {
+    transform: translate(45px, -35px) scale(1.12);
+    opacity: 0.95;
+  }
+  66% {
+    transform: translate(-35px, 25px) scale(0.92);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.75;
+  }
+}
+
+@keyframes floatSlow2 {
+  0% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50px, 45px) scale(1.18) rotate(180deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1) rotate(360deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes floatSlow3 {
+  0% {
+    transform: translate(0px, 0px) scale(0.95);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(40px, 50px) scale(1.15);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(0.95);
+    opacity: 0.55;
+  }
+}
+
+@keyframes gridGaze {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 54px 54px;
+  }
+}
+
+@keyframes beamScan {
+  0% {
+    top: -20%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    top: 120%;
+    opacity: 0;
+  }
+}
+
+.animate-float-1 {
+  animation: floatSlow1 18s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatSlow2 24s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: floatSlow3 20s ease-in-out infinite;
+}
+
+.animate-grid-drift {
+  animation: gridGaze 35s linear infinite;
+}
+
+.animate-beam-scan {
+  animation: beamScan 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+

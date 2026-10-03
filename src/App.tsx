@@ -21,6 +21,76 @@ import {
 import avatarFounder from './assets/images/avatar_african_founder_1790161357336.jpg';
 import avatarCreator from './assets/images/avatar_african_creator_1790161371307.jpg';
 import avatarConsultant from './assets/images/avatar_african_consultant_1790161381513.jpg';
+import { AnimatedBackground } from './components/AnimatedBackground';
+
+/* Official Payment Provider Logo Components */
+function WaveLogo({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Wave">
+      <rect width="40" height="40" rx="8" fill="#1AA9FB"/>
+      <path d="M20 7C16.5 7 14 9.5 14 13.5C14 15.2 14.8 17.5 16 19.5C14 20.8 12 23.5 12 27C12 31 15 33 20 33C25 33 28 31 28 27C28 23.5 26 20.8 24 19.5C25.2 17.5 26 15.2 26 13.5C26 9.5 23.5 7 20 7Z" fill="#0A2540"/>
+      <ellipse cx="20" cy="22" rx="4.5" ry="6.5" fill="white"/>
+      <ellipse cx="20" cy="13" rx="3.5" ry="4" fill="white"/>
+      <circle cx="18.5" cy="12.5" r="1" fill="#0A2540"/>
+      <circle cx="21.5" cy="12.5" r="1" fill="#0A2540"/>
+      <path d="M19 14.5L20 16L21 14.5Z" fill="#FFA500"/>
+      <ellipse cx="17.5" cy="32.5" rx="2.5" ry="1.2" fill="#FFA500"/>
+      <ellipse cx="22.5" cy="32.5" rx="2.5" ry="1.2" fill="#FFA500"/>
+    </svg>
+  );
+}
+
+function OrangeMoneyLogo({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Orange Money">
+      <rect width="40" height="40" rx="8" fill="#FF7900"/>
+      <rect x="6" y="13" width="28" height="14" rx="2.5" fill="#000000"/>
+      <text x="20" y="21" fill="#FF7900" fontSize="5.5" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">orange</text>
+      <text x="20" y="25" fill="#FFFFFF" fontSize="4.5" fontWeight="800" textAnchor="middle" fontFamily="sans-serif">money</text>
+    </svg>
+  );
+}
+
+function MTNMoMoLogo({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="MTN MoMo">
+      <rect width="40" height="40" rx="8" fill="#FFCC00"/>
+      <ellipse cx="20" cy="20" rx="15" ry="11" fill="#002B49"/>
+      <text x="20" y="23.5" fill="#FFCC00" fontSize="9" fontWeight="900" textAnchor="middle" fontFamily="sans-serif" letterSpacing="-0.5">MoMo</text>
+    </svg>
+  );
+}
+
+function MoovMoneyLogo({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Moov Money">
+      <rect width="40" height="40" rx="8" fill="#005BAC"/>
+      <circle cx="15" cy="20" r="7" fill="#FF6600"/>
+      <circle cx="25" cy="20" r="7" fill="#0080FF" fillOpacity="0.8"/>
+      <text x="20" y="22.5" fill="#FFFFFF" fontSize="6.5" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">moov</text>
+    </svg>
+  );
+}
+
+function VisaLogo({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Visa">
+      <rect width="40" height="40" rx="8" fill="#0E4595"/>
+      <text x="20" y="24" fill="#FFFFFF" fontSize="9.5" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="sans-serif" letterSpacing="0.5">VISA</text>
+    </svg>
+  );
+}
+
+function MastercardLogo({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard">
+      <rect width="40" height="40" rx="8" fill="#181B26"/>
+      <circle cx="15.5" cy="20" r="8" fill="#EB001B"/>
+      <circle cx="24.5" cy="20" r="8" fill="#F79E1B"/>
+      <path d="M20 14.5C21.8 16 23 17.8 23 20C23 22.2 21.8 24 20 25.5C18.2 24 17 22.2 17 20C17 17.8 18.2 16 20 14.5Z" fill="#FF5F00"/>
+    </svg>
+  );
+}
 
 interface Offer {
   id: string;
@@ -148,9 +218,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090A0E] text-slate-100 flex flex-col font-sans selection:bg-[#FF5500] selection:text-white">
-      {/* 1. TOP BAR CONTRACT */}
-      <header className="sticky top-0 z-40 bg-[#090A0E]/90 backdrop-blur-md border-b border-white/5 transition-all">
+    <div className="min-h-screen bg-[#060713] text-slate-100 flex flex-col font-bricolage selection:bg-[#2545FF] selection:text-white relative">
+      {/* Animated dynamic background system */}
+      <AnimatedBackground />
+
+      {/* 1. TOP BAR CONTRACT WITH GLASSMORPHISM */}
+      <header className="sticky top-0 z-40 glass-header transition-all">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Zone 1: Single text element wordmark */}
           <a 
@@ -158,8 +231,8 @@ export default function App() {
             className="text-xl font-bold tracking-tight text-white flex items-center gap-1.5 focus:outline-none"
             aria-label="Focus One accueil"
           >
-            <span className="font-display font-extrabold text-white text-2xl tracking-tighter">Focus</span>
-            <span className="text-[#FF5500] font-display font-extrabold text-2xl tracking-tighter">One</span>
+            <span className="font-extrabold text-white text-2xl tracking-tighter">Focus</span>
+            <span className="text-[#2545FF] font-extrabold text-2xl tracking-tighter">One</span>
           </a>
 
           {/* Zone 2: Clean 4-6 text navigation links */}
@@ -174,7 +247,7 @@ export default function App() {
               onClick={() => scrollToSection('methode')}
               className="hover:text-white transition-colors cursor-pointer"
             >
-              La Méthode
+              La <span className="font-accented">Méthode</span>
             </button>
             <button 
               onClick={() => scrollToSection('offres')}
@@ -200,7 +273,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => scrollToSection('offres')}
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold text-white bg-[#FF5500] hover:bg-[#E64D00] rounded-lg transition-colors whitespace-nowrap shadow-sm hover:shadow-[0_0_20px_rgba(255,85,0,0.35)] cursor-pointer"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold text-white bg-[#2545FF] hover:bg-[#1B36D4] rounded-xl transition-all whitespace-nowrap shadow-sm hover:shadow-[0_0_20px_rgba(37,69,255,0.4)] cursor-pointer"
             >
               Découvrir les offres
             </button>
@@ -218,7 +291,7 @@ export default function App() {
 
         {/* Mobile dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#0D0F15] border-b border-white/10 px-4 py-5 space-y-3 animate-in fade-in duration-200">
+          <div className="md:hidden glass-panel border-b border-white/10 px-4 py-5 space-y-3 animate-in fade-in duration-200">
             <button 
               onClick={() => scrollToSection('probleme')}
               className="block w-full text-left py-2 text-sm font-medium text-slate-300 hover:text-white"
@@ -229,7 +302,7 @@ export default function App() {
               onClick={() => scrollToSection('methode')}
               className="block w-full text-left py-2 text-sm font-medium text-slate-300 hover:text-white"
             >
-              La Méthode
+              La <span className="font-accented">Méthode</span>
             </button>
             <button 
               onClick={() => scrollToSection('offres')}
@@ -252,7 +325,7 @@ export default function App() {
             <div className="pt-2">
               <button
                 onClick={() => scrollToSection('offres')}
-                className="w-full py-3 text-center text-sm font-semibold text-white bg-[#FF5500] hover:bg-[#E64D00] rounded-lg transition-colors cursor-pointer"
+                className="w-full py-3 text-center text-sm font-semibold text-white bg-[#2545FF] hover:bg-[#1B36D4] rounded-xl transition-colors cursor-pointer"
               >
                 Découvrir les offres
               </button>
@@ -261,72 +334,65 @@ export default function App() {
         )}
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {/* 1. HERO SECTION */}
-        <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
-          {/* Subtle single radial glow behind hero */}
-          <div 
-            className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#FF5500]/10 rounded-full blur-[120px] pointer-events-none"
-            aria-hidden="true" 
-          />
-
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-            {/* Clean unboxed metadata (anti-pill discipline) */}
-            <div className="flex items-center justify-center gap-2 text-xs font-medium text-slate-400 mb-6 tracking-wide">
-              <span>Méthode inspirée de l'Ikigai</span>
-              <span aria-hidden="true" className="text-[#FF5500]">·</span>
-              <span>Positionnement digital</span>
-              <span aria-hidden="true" className="text-[#FF5500]">·</span>
-              <span>Profil magnétique</span>
-            </div>
-
-            {/* Impact Headline */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12] mb-6 font-display max-w-3xl mx-auto" style={{ textWrap: 'balance' }}>
-              Tu essaies plein de choses et rien ne prend. Le problème, c'est que tu n'as pas encore trouvé <span className="text-[#FF5500]">TA compétence</span>.
+        <section className="relative pt-14 pb-20 md:pt-24 md:pb-28 overflow-hidden">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10 flex flex-col items-center">
+            {/* Impact Headline strictly each sentence on its own single line */}
+            <h1 className="text-[clamp(1.4rem,5.6vw,4.5rem)] font-black text-white tracking-tight leading-[1.15] mb-6 w-full mx-auto">
+              <span className="block whitespace-nowrap">Tu n'as pas besoin de plus.</span>
+              <span className="block mt-1.5 sm:mt-2.5 whitespace-nowrap">Tu as besoin d'une <span className="font-accented text-[#2545FF]">compétence</span>.</span>
             </h1>
 
-            {/* Promise Subtitle */}
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto mb-9">
-              Arrête d'éparpiller ton énergie sur 10 projets à la fois. Focus One t'aide à identifier la compétence unique dans laquelle tu excelles, puis à bâtir un profil réseaux sociaux magnétique qui attire naturellement tes clients idéaux.
-            </p>
+            {/* Promise Subtitle - each statement strictly on its own single line */}
+            <div className="text-[clamp(0.85rem,2.3vw,1.25rem)] text-slate-200 font-normal leading-relaxed w-full max-w-4xl mx-auto mb-9 space-y-1.5">
+              <p className="block whitespace-nowrap">Un positionnement clair.</p>
+              <p className="block whitespace-nowrap">Un profil qui attire naturellement les bons clients.</p>
+            </div>
 
             {/* Primary CTA */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <button
                 onClick={() => scrollToSection('offres')}
-                className="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-[#FF5500] hover:bg-[#E64D00] rounded-xl transition-all shadow-[0_0_30px_rgba(255,85,0,0.3)] hover:shadow-[0_0_40px_rgba(255,85,0,0.5)] flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-[#2545FF] hover:bg-[#1B36D4] rounded-xl transition-all shadow-[0_0_30px_rgba(37,69,255,0.35)] hover:shadow-[0_0_45px_rgba(37,69,255,0.55)] flex items-center justify-center gap-2 group cursor-pointer whitespace-nowrap"
               >
-                <span>Découvrir mes options</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span className="whitespace-nowrap">Découvrir mes options</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform shrink-0" />
               </button>
             </div>
 
-            {/* Trust reassurance (unboxed text) */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-400">
-              <div className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-[#FF5500]" />
-                <span>Paiement unique en FCFA</span>
+            {/* Trust reassurance (unboxed text) - each badge on a single line with provider logos */}
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-slate-300">
+              <div className="flex items-center gap-1.5 whitespace-nowrap">
+                <Check className="w-4 h-4 text-[#2545FF] shrink-0" />
+                <span className="whitespace-nowrap">Paiement unique en FCFA</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-[#FF5500]" />
-                <span>Wave, Orange Money & MoMo acceptés</span>
+              <div className="flex items-center gap-2 whitespace-nowrap glass-chip py-1 px-3 rounded-full border border-white/10">
+                <div className="flex items-center -space-x-1 shrink-0">
+                  <WaveLogo className="w-4 h-4 rounded-full shadow-sm" />
+                  <OrangeMoneyLogo className="w-4 h-4 rounded-full shadow-sm" />
+                  <MTNMoMoLogo className="w-4 h-4 rounded-full shadow-sm" />
+                </div>
+                <span className="whitespace-nowrap text-slate-200">Wave, Orange Money & MoMo acceptés</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-[#FF5500]" />
-                <span>Résultats dès cette semaine</span>
+              <div className="flex items-center gap-1.5 whitespace-nowrap">
+                <Check className="w-4 h-4 text-[#2545FF] shrink-0" />
+                <span className="whitespace-nowrap"><span className="font-accented">Résultats</span> dès cette semaine</span>
               </div>
             </div>
 
-            {/* Visual Anchor: The Shift Visual (Dispersion vs Focus) */}
+            {/* Visual Anchor: The Shift Visual (Dispersion vs Focus) with Glassmorphism */}
             <div className="mt-14 max-w-3xl mx-auto text-left">
-              <div className="bg-[#12141D] rounded-2xl border border-white/10 p-5 sm:p-7 shadow-2xl relative overflow-hidden">
+              <div className="glass-panel rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
                   {/* Left: Dispersion */}
-                  <div className="p-4 sm:p-5 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col justify-between">
+                  <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col justify-between backdrop-blur-md">
                     <div>
                       <div className="flex items-center gap-2 text-xs font-semibold text-rose-400 mb-3 tracking-wide uppercase">
-                        <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-                        Avant : La dispersion (10 projets à 10%)
+                        <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse shrink-0" />
+                        <span className="leading-snug">
+                          Avant : La <span className="font-accented">dispersion</span> (<span className="font-numbers">10</span> projets à <span className="font-numbers">10%</span>)
+                        </span>
                       </div>
                       <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
                         Tu passes du copywriting au dropshipping, puis au community management et à la création vidéo. Beaucoup d'effort, zéro autorité perçue.
@@ -339,19 +405,21 @@ export default function App() {
                   </div>
 
                   {/* Right: Focus One */}
-                  <div className="p-4 sm:p-5 rounded-xl bg-[#191D28] border border-[#FF5500]/40 flex flex-col justify-between relative shadow-[0_0_25px_rgba(255,85,0,0.1)]">
+                  <div className="p-4 sm:p-5 rounded-2xl bg-[#2545FF]/10 border border-[#2545FF]/40 flex flex-col justify-between relative shadow-[0_0_25px_rgba(37,69,255,0.12)] backdrop-blur-md">
                     <div>
-                      <div className="flex items-center gap-2 text-xs font-semibold text-[#FF5500] mb-3 tracking-wide uppercase">
-                        <Flame className="w-4 h-4 text-[#FF5500]" />
-                        Avec Focus One : 1 Compétence Pivot (100%)
+                      <div className="flex items-center gap-2 text-xs font-semibold text-[#2545FF] mb-3 tracking-wide uppercase">
+                        <Flame className="w-4 h-4 text-[#2545FF] shrink-0" />
+                        <span className="leading-snug">
+                          Avec Focus One : <span className="font-numbers">1</span> <span className="font-accented">Compétence</span> Pivot (<span className="font-numbers">100%</span>)
+                        </span>
                       </div>
                       <p className="text-xs sm:text-sm text-slate-200 leading-relaxed mb-4">
-                        Une compétence identifiée où tu es excellent. Un profil optimisé qui explique en 3 secondes pourquoi on doit te payer toi et pas un autre.
+                        Une compétence identifiée où tu es excellent. Un profil optimisé qui explique en <span className="font-numbers">3</span> secondes pourquoi on doit te payer toi et pas un autre.
                       </p>
                     </div>
                     <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
                       <span>Perception client</span>
-                      <span className="font-semibold text-white">Expert incontournable</span>
+                      <span className="font-semibold text-white">Expert <span className="font-accented">incontournable</span></span>
                     </div>
                   </div>
                 </div>
@@ -360,55 +428,55 @@ export default function App() {
           </div>
         </section>
 
-        {/* 2. SECTION PROBLÈME (Ton empathique, pas culpabilisant) */}
-        <section id="probleme" className="py-20 bg-[#0C0E14] border-y border-white/5 relative">
+        {/* 2. SECTION PROBLÈME WITH GLASSMORPHISM */}
+        <section id="probleme" className="py-20 relative">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#FF5500] mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2545FF] mb-3 block">
                 Diagnostic lucide
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-display tracking-tight leading-tight">
-                Ce n'est pas un manque de travail. C'est un manque de clarté.
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                Ce n'est pas un manque de travail. C'est un manque de <span className="font-accented text-[#2545FF]">clarté</span>.
               </h2>
               <p className="text-sm sm:text-base text-slate-400 mt-4 leading-relaxed">
                 Tu as l'énergie, la motivation et l'envie de réussir. Mais sans une cible précise, tous tes efforts s'évaporent sans laisser de trace.
               </p>
             </div>
 
-            {/* 3 empathetic points */}
+            {/* 3 empathetic points with glassmorphic cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Point 1 */}
-              <div className="bg-[#12141D] p-6 sm:p-7 rounded-2xl border border-white/5 hover:border-white/15 transition-all">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#FF5500] font-display font-bold text-lg mb-5">
+              <div className="glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#2545FF] font-numbers font-bold text-lg mb-5">
                   01
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3 font-display">
-                  La dispersion invisible
+                <h3 className="text-lg font-bold text-white mb-3">
+                  La <span className="font-accented">dispersion</span> invisible
                 </h3>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  Tu testes une nouvelle opportunité chaque semaine. Tu n'es pas paresseux : tu es juste éparpillé. Faire 10 choses à 10% ne donne jamais 100% de résultat.
+                  Tu testes une nouvelle opportunité chaque semaine. Tu n'es pas paresseux : tu es juste éparpillé. Faire <span className="font-numbers">10</span> choses à <span className="font-numbers">10%</span> ne donne jamais <span className="font-numbers">100%</span> de résultat.
                 </p>
               </div>
 
               {/* Point 2 */}
-              <div className="bg-[#12141D] p-6 sm:p-7 rounded-2xl border border-white/5 hover:border-white/15 transition-all">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#FF5500] font-display font-bold text-lg mb-5">
+              <div className="glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#2545FF] font-numbers font-bold text-lg mb-5">
                   02
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3 font-display">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Le flou pour tes prospects
                 </h3>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  Quand quelqu'un arrive sur ton profil Facebook, Instagram ou LinkedIn, il ne comprend pas en 3 secondes ce que tu apportes concrètement. Dans le doute, il va voir ailleurs.
+                  Quand quelqu'un arrive sur ton profil Facebook, Instagram ou LinkedIn, il ne comprend pas en <span className="font-numbers">3</span> secondes ce que tu apportes concrètement. Dans le doute, il va voir ailleurs.
                 </p>
               </div>
 
               {/* Point 3 */}
-              <div className="bg-[#12141D] p-6 sm:p-7 rounded-2xl border border-white/5 hover:border-white/15 transition-all">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#FF5500] font-display font-bold text-lg mb-5">
+              <div className="glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#2545FF] font-numbers font-bold text-lg mb-5">
                   03
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3 font-display">
+                <h3 className="text-lg font-bold text-white mb-3">
                   Un profil non optimisé
                 </h3>
                 <p className="text-sm text-slate-300 leading-relaxed">
@@ -418,36 +486,36 @@ export default function App() {
             </div>
 
             {/* Empathy concluding statement */}
-            <div className="mt-12 text-center p-6 rounded-2xl bg-white/[0.02] border border-white/5 max-w-2xl mx-auto">
+            <div className="mt-12 text-center p-6 rounded-2xl glass-panel max-w-2xl mx-auto">
               <p className="text-sm sm:text-base text-slate-300">
-                <strong className="text-white font-semibold">La bonne nouvelle ?</strong> Il suffit souvent d'un seul ajustement : verrouiller <span className="text-[#FF5500] font-medium">une seule compétence clé</span> et la packager avec un profil professionnel irréprochable.
+                <strong className="text-white font-semibold">La bonne nouvelle ?</strong> Il suffit souvent d'un seul ajustement : verrouiller <span className="text-[#2545FF] font-medium font-accented">une seule compétence clé</span> et la packager avec un profil professionnel irréprochable.
               </p>
             </div>
           </div>
         </section>
 
-        {/* MÉTHODE / PROCESSUS (Ikigai adapté + Branding) */}
-        <section id="methode" className="py-20 bg-[#090A0E] relative">
+        {/* MÉTHODE / PROCESSUS (Ikigai adapté + Branding) WITH GLASS PANELS */}
+        <section id="methode" className="py-20 relative">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#FF5500] mb-3 block">
-                La méthode Focus One
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2545FF] mb-3 block">
+                La <span className="font-accented">méthode</span> Focus One
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
                 Deux étapes simples pour changer de statut
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Etape 1 */}
-              <div className="p-8 rounded-2xl bg-[#12141D] border border-white/10 relative">
+              <div className="p-8 rounded-3xl glass-panel glass-panel-hover relative">
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#FF5500]/10 border border-[#FF5500]/20 flex items-center justify-center text-[#FF5500]">
+                  <div className="w-12 h-12 rounded-xl bg-[#2545FF]/10 border border-[#2545FF]/30 flex items-center justify-center text-[#2545FF]">
                     <Target className="w-6 h-6" />
                   </div>
-                  <span className="text-xs font-semibold text-slate-400">Étape 01</span>
+                  <span className="text-xs font-semibold text-slate-400">Étape <span className="font-numbers">01</span></span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 font-display">
+                <h3 className="text-xl font-bold text-white mb-3">
                   L'extraction Ikigai assistée par IA
                 </h3>
                 <p className="text-sm text-slate-300 leading-relaxed mb-4">
@@ -455,25 +523,25 @@ export default function App() {
                 </p>
                 <div className="text-xs text-slate-400 space-y-1.5 pt-4 border-t border-white/5">
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#FF5500]" />
-                    <span>Fin des hésitations entre 5 métiers</span>
+                    <Check className="w-3.5 h-3.5 text-[#2545FF]" />
+                    <span>Fin des hésitations entre <span className="font-numbers">5</span> métiers</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#FF5500]" />
-                    <span>Ciblage direct de ta compétence la plus rentable</span>
+                    <Check className="w-3.5 h-3.5 text-[#2545FF]" />
+                    <span>Ciblage direct de ta <span className="font-accented text-white">compétence</span> la plus rentable</span>
                   </div>
                 </div>
               </div>
 
               {/* Etape 2 */}
-              <div className="p-8 rounded-2xl bg-[#12141D] border border-white/10 relative">
+              <div className="p-8 rounded-3xl glass-panel glass-panel-hover relative">
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#FF5500]/10 border border-[#FF5500]/20 flex items-center justify-center text-[#FF5500]">
+                  <div className="w-12 h-12 rounded-xl bg-[#2545FF]/10 border border-[#2545FF]/30 flex items-center justify-center text-[#2545FF]">
                     <Sparkles className="w-6 h-6" />
                   </div>
-                  <span className="text-xs font-semibold text-slate-400">Étape 02</span>
+                  <span className="text-xs font-semibold text-slate-400">Étape <span className="font-numbers">02</span></span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 font-display">
+                <h3 className="text-xl font-bold text-white mb-3">
                   La transformation du profil en aimant
                 </h3>
                 <p className="text-sm text-slate-300 leading-relaxed mb-4">
@@ -481,11 +549,11 @@ export default function App() {
                 </p>
                 <div className="text-xs text-slate-400 space-y-1.5 pt-4 border-t border-white/5">
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#FF5500]" />
-                    <span>Image d'autorité immédiate dès le premier regard</span>
+                    <Check className="w-3.5 h-3.5 text-[#2545FF]" />
+                    <span>Image d'autorité <span className="font-accented text-white">immédiate</span> dès le premier regard</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#FF5500]" />
+                    <Check className="w-3.5 h-3.5 text-[#2545FF]" />
                     <span>Les prospects viennent à toi au lieu de courir après eux</span>
                   </div>
                 </div>
@@ -494,18 +562,18 @@ export default function App() {
           </div>
         </section>
 
-        {/* 3. SECTION OFFRES — 3 CARTES CÔTE À CÔTE */}
-        <section id="offres" className="py-20 bg-[#0C0E14] border-t border-white/5 relative">
+        {/* 3. SECTION OFFRES — 3 CARTES CÔTE À CÔTE WITH GLASSMORPHISM */}
+        <section id="offres" className="py-20 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#FF5500] mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2545FF] mb-3 block">
                 Tarifs transparents & paiement unique
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 Choisis la formule adaptée à ta situation
               </h2>
               <p className="text-sm sm:text-base text-slate-400 mt-4">
-                Pas d'abonnement récurrent. Aucun frais caché. Accès immédiat ou livraison sous 48h.
+                Pas d'abonnement récurrent. Aucun frais caché. Accès immédiat ou livraison sous <span className="font-numbers">48h</span>.
               </p>
             </div>
 
@@ -518,14 +586,14 @@ export default function App() {
                     key={offer.id}
                     className={`relative rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
                       isBundle
-                        ? 'bg-[#151824] border-2 border-[#FF5500] shadow-[0_0_40px_rgba(255,85,0,0.18)] lg:-translate-y-2'
-                        : 'bg-[#10121A] border border-white/10 hover:border-white/20'
+                        ? 'glass-panel-accent shadow-[0_12px_44px_rgba(37,69,255,0.22)] lg:-translate-y-2'
+                        : 'glass-panel glass-panel-hover'
                     }`}
                   >
                     {/* Badge if bundle */}
                     {offer.highlight && (
                       <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                        <span className="bg-[#FF5500] text-white text-xs font-bold uppercase tracking-wider py-1 px-3.5 rounded-full shadow-md whitespace-nowrap">
+                        <span className="bg-[#2545FF] text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full shadow-lg whitespace-nowrap">
                           {offer.highlight}
                         </span>
                       </div>
@@ -534,7 +602,7 @@ export default function App() {
                     <div>
                       {/* Card Header */}
                       <div className="mb-6">
-                        <h3 className="text-xl font-bold text-white font-display mb-2">
+                        <h3 className="text-xl font-bold text-white mb-2">
                           {offer.name}
                         </h3>
                         <p className="text-xs text-slate-400 leading-relaxed min-h-[36px]">
@@ -545,7 +613,7 @@ export default function App() {
                       {/* Pricing */}
                       <div className="mb-6 pb-6 border-b border-white/10">
                         <div className="flex items-baseline gap-2">
-                          <span className="text-3xl sm:text-4xl font-black text-white font-display tabular-nums tracking-tight">
+                          <span className="text-3xl sm:text-4xl font-black text-white font-numbers tracking-tight">
                             {offer.price}
                           </span>
                         </div>
@@ -561,51 +629,11 @@ export default function App() {
                         </span>
                         {offer.features.map((feature, idx) => (
                           <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300">
-                            <Check className={`w-4 h-4 shrink-0 mt-0.5 ${isBundle ? 'text-[#FF5500]' : 'text-slate-400'}`} />
+                            <Check className={`w-4 h-4 shrink-0 mt-0.5 ${isBundle ? 'text-[#2545FF]' : 'text-slate-400'}`} />
                             <span className="leading-snug">{feature}</span>
                           </div>
                         ))}
                       </div>
-
-                      {/* Message spécifique pour l'Offre 1 : Accès Ikigai */}
-                      {offer.id === 'skill' && (
-                        <div className="mb-6 p-4 rounded-2xl bg-[#FF5500]/10 border border-[#FF5500]/30 text-left">
-                          <div className="flex items-center gap-2 text-xs font-bold text-[#FF5500] uppercase tracking-wider mb-2">
-                            <KeyRound className="w-4 h-4" />
-                            <span>Accès immédiat</span>
-                          </div>
-                          <p className="text-xs text-slate-200 leading-relaxed mb-3">
-                            Voici ton accès à Ikigai. À présent clique sur ce lien et entre ce code. Ensuite suis les directives de l'assistant pour trouver ta compétence.
-                          </p>
-
-                          <div className="space-y-2.5 pt-2 border-t border-[#FF5500]/20 text-xs">
-                            <div className="flex items-center justify-between gap-2 p-2 rounded-lg bg-[#090A0E] border border-white/10">
-                              <span className="text-slate-400">Code :</span>
-                              <div className="flex items-center gap-2">
-                                <span className="font-mono font-bold text-[#FF5500] tracking-wider text-sm">{IKIGAI_CODE}</span>
-                                <button
-                                  type="button"
-                                  onClick={handleCopyCode}
-                                  className="p-1 hover:text-white text-slate-400 transition-colors"
-                                  title="Copier le code"
-                                >
-                                  {copiedCode ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                                </button>
-                              </div>
-                            </div>
-
-                            <a
-                              href={IKIGAI_LINK}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-full py-2 px-3 rounded-lg bg-[#FF5500] hover:bg-[#E64D00] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm"
-                            >
-                              <span>Ouvrir l'assistant Ikigai</span>
-                              <ExternalLink className="w-3.5 h-3.5" />
-                            </a>
-                          </div>
-                        </div>
-                      )}
                     </div>
 
                     {/* CTA Button */}
@@ -614,7 +642,7 @@ export default function App() {
                         onClick={() => handleOpenOffer(offer)}
                         className={`w-full py-3.5 px-6 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
                           isBundle
-                            ? 'bg-[#FF5500] hover:bg-[#E64D00] text-white shadow-[0_0_25px_rgba(255,85,0,0.4)]'
+                            ? 'bg-[#2545FF] hover:bg-[#1B36D4] text-white shadow-[0_0_25px_rgba(37,69,255,0.45)]'
                             : 'bg-white/10 hover:bg-white/20 text-white'
                         }`}
                       >
@@ -627,31 +655,49 @@ export default function App() {
               })}
             </div>
 
-            {/* Local payments banner (clean, unboxed) */}
-            <div className="mt-14 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-              <span className="text-center sm:text-left">
-                Paiements locaux et internationaux sécurisés :
+            {/* Local payments banner with authentic logos */}
+            <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-slate-300">
+              <span className="text-center md:text-left font-medium">
+                Paiements locaux et internationaux <span className="font-accented text-white">sécurisés</span> :
               </span>
-              <div className="flex flex-wrap items-center justify-center gap-4 text-slate-300 font-medium">
-                <span className="px-2.5 py-1 bg-white/5 rounded border border-white/10 text-white">Wave</span>
-                <span className="px-2.5 py-1 bg-white/5 rounded border border-white/10 text-white">Orange Money</span>
-                <span className="px-2.5 py-1 bg-white/5 rounded border border-white/10 text-white">MTN MoMo</span>
-                <span className="px-2.5 py-1 bg-white/5 rounded border border-white/10 text-white">Moov Money</span>
-                <span className="px-2.5 py-1 bg-white/5 rounded border border-white/10 text-white">Carte Visa / Mastercard</span>
+              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+                <div className="flex items-center gap-2 px-3 py-1.5 glass-chip rounded-xl border border-white/10 hover:border-[#1AA9FB]/40 transition-colors shadow-sm">
+                  <WaveLogo className="w-5 h-5 rounded-md shrink-0 shadow-sm" />
+                  <span className="text-white font-medium text-xs">Wave</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 glass-chip rounded-xl border border-white/10 hover:border-[#FF7900]/40 transition-colors shadow-sm">
+                  <OrangeMoneyLogo className="w-5 h-5 rounded-md shrink-0 shadow-sm" />
+                  <span className="text-white font-medium text-xs">Orange Money</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 glass-chip rounded-xl border border-white/10 hover:border-[#FFCC00]/40 transition-colors shadow-sm">
+                  <MTNMoMoLogo className="w-5 h-5 rounded-md shrink-0 shadow-sm" />
+                  <span className="text-white font-medium text-xs">MTN MoMo</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 glass-chip rounded-xl border border-white/10 hover:border-[#005BAC]/40 transition-colors shadow-sm">
+                  <MoovMoneyLogo className="w-5 h-5 rounded-md shrink-0 shadow-sm" />
+                  <span className="text-white font-medium text-xs">Moov Money</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 glass-chip rounded-xl border border-white/10 hover:border-white/30 transition-colors shadow-sm">
+                  <div className="flex items-center -space-x-1 shrink-0">
+                    <VisaLogo className="w-5 h-5 rounded-md shadow-sm" />
+                    <MastercardLogo className="w-5 h-5 rounded-md shadow-sm" />
+                  </div>
+                  <span className="text-white font-medium text-xs">Visa / Mastercard</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4. SECTION PREUVE SOCIALE — TÉMOIGNAGES */}
-        <section id="temoignages" className="py-20 bg-[#090A0E] relative">
+        {/* 4. SECTION PREUVE SOCIALE — TÉMOIGNAGES WITH GLASSMORPHISM */}
+        <section id="temoignages" className="py-20 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#FF5500] mb-3 block">
-                Preuve & retours d'expérience
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2545FF] mb-3 block">
+                Preuve & retours d'<span className="font-accented">expérience</span>
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
-                Ils ont arrêté de se disperser. Voici leurs résultats.
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                Ils ont arrêté de se disperser. Voici leurs <span className="font-accented text-[#2545FF]">résultats</span>.
               </h2>
               <p className="text-sm sm:text-base text-slate-400 mt-4">
                 Des créateurs et freelances africains qui ont fait le choix du focus.
@@ -660,13 +706,13 @@ export default function App() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Testimonial 1 */}
-              <div className="bg-[#11131C] p-6 sm:p-7 rounded-2xl border border-white/10 flex flex-col justify-between">
+              <div className="glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-1 text-[#FF5500] mb-4">
+                  <div className="flex items-center gap-1 text-[#2545FF] mb-4">
                     {'★'.repeat(5)}
                   </div>
                   <p className="text-sm text-slate-300 leading-relaxed mb-6 italic">
-                    "Avant Focus One, j'avais 4 offres différentes dans ma bio. Les gens ne comprenaient rien. En 48h après la refonte de mon profil et le recentrage sur ma compétence clé, j'ai signé mes deux premiers clients à 150 000 FCFA."
+                    "Avant Focus One, j'avais <span className="font-numbers">4</span> offres différentes dans ma bio. Les gens ne comprenaient rien. En <span className="font-numbers">48h</span> après la refonte de mon profil et le recentrage sur ma compétence clé, j'ai signé mes deux premiers clients à <span className="font-numbers">150 000 FCFA</span>."
                   </p>
                 </div>
                 <div className="flex items-center gap-3 pt-4 border-t border-white/5">
@@ -684,13 +730,13 @@ export default function App() {
               </div>
 
               {/* Testimonial 2 */}
-              <div className="bg-[#11131C] p-6 sm:p-7 rounded-2xl border border-white/10 flex flex-col justify-between">
+              <div className="glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-1 text-[#FF5500] mb-4">
+                  <div className="flex items-center gap-1 text-[#2545FF] mb-4">
                     {'★'.repeat(5)}
                   </div>
                   <p className="text-sm text-slate-300 leading-relaxed mb-6 italic">
-                    "Je passais mes journées à tester toutes les tendances TikTok et YouTube sans stratégie. La méthode Ikigai m'a enfin permis de comprendre ma vraie valeur. Le branding d'expert a donné une crédibilité immédiate à ma page."
+                    "Je passais mes journées à tester toutes les tendances TikTok et YouTube sans stratégie. La <span className="font-accented">méthode</span> Ikigai m'a enfin permis de comprendre ma vraie valeur. Le branding d'expert a donné une crédibilité <span className="font-accented">immédiate</span> à ma page."
                   </p>
                 </div>
                 <div className="flex items-center gap-3 pt-4 border-t border-white/5">
@@ -708,13 +754,13 @@ export default function App() {
               </div>
 
               {/* Testimonial 3 */}
-              <div className="bg-[#11131C] p-6 sm:p-7 rounded-2xl border border-white/10 flex flex-col justify-between">
+              <div className="glass-panel glass-panel-hover p-6 sm:p-7 rounded-3xl flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-1 text-[#FF5500] mb-4">
+                  <div className="flex items-center gap-1 text-[#2545FF] mb-4">
                     {'★'.repeat(5)}
                   </div>
                   <p className="text-sm text-slate-300 leading-relaxed mb-6 italic">
-                    "J'hésitais entre le Branding seul et le Bundle. Pour 36 000f, le bundle est donné. Mon profil LinkedIn a généré plus de 12 prospects qualifiés entrants le premier mois sans aucune prospection à froid."
+                    "J'hésitais entre le Branding seul et le Bundle. Pour <span className="font-numbers">36 000f</span>, le bundle est donné. Mon profil LinkedIn a généré plus de <span className="font-numbers">12</span> prospects qualifiés entrants le premier mois sans aucune prospection à froid."
                   </p>
                 </div>
                 <div className="flex items-center gap-3 pt-4 border-t border-white/5">
@@ -734,14 +780,14 @@ export default function App() {
           </div>
         </section>
 
-        {/* 5. FAQ SECTION (Accordéon) */}
-        <section id="faq" className="py-20 bg-[#0C0E14] border-t border-white/5 relative">
+        {/* 5. FAQ SECTION (Accordéon) WITH GLASSMORPHISM */}
+        <section id="faq" className="py-20 relative">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-14">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#FF5500] mb-3 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2545FF] mb-3 block">
                 Questions fréquentes
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
                 Tout ce que tu dois savoir avant de commander
               </h2>
             </div>
@@ -752,19 +798,19 @@ export default function App() {
                 return (
                   <div
                     key={index}
-                    className="rounded-2xl bg-[#11131C] border border-white/10 overflow-hidden transition-all"
+                    className="rounded-2xl glass-panel glass-panel-hover overflow-hidden transition-all"
                   >
                     <button
                       onClick={() => setOpenFaq(isOpen ? null : index)}
                       className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                       aria-expanded={isOpen}
                     >
-                      <span className="font-bold text-base sm:text-lg text-white font-display">
+                      <span className="font-bold text-base sm:text-lg text-white">
                         {faq.question}
                       </span>
                       <ChevronDown
                         className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                          isOpen ? 'rotate-180 text-[#FF5500]' : ''
+                          isOpen ? 'rotate-180 text-[#2545FF]' : ''
                         }`}
                       />
                     </button>
@@ -780,26 +826,27 @@ export default function App() {
           </div>
         </section>
 
-        {/* 6. CTA FINAL */}
-        <section className="py-20 md:py-28 bg-[#090A0E] relative border-t border-white/5">
+        {/* 6. CTA FINAL WITH GLASSMORPHISM */}
+        <section className="py-20 md:py-28 relative">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <div className="p-8 sm:p-14 rounded-3xl bg-gradient-to-b from-[#131622] to-[#0D0F16] border border-white/10 relative overflow-hidden shadow-2xl">
+            <div className="p-8 sm:p-14 rounded-3xl glass-panel-accent relative overflow-hidden shadow-2xl">
               {/* Subtle top glow */}
               <div 
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-32 bg-[#FF5500]/20 rounded-full blur-[80px] pointer-events-none"
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-32 bg-[#2545FF]/25 rounded-full blur-[80px] pointer-events-none"
                 aria-hidden="true" 
               />
 
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white font-display tracking-tight mb-6 leading-tight" style={{ textWrap: 'balance' }}>
-                Tu essaies plein de choses et rien ne prend. Arrête la dispersion, trouve <span className="text-[#FF5500]">TA compétence</span>.
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6 leading-tight" style={{ textWrap: 'balance' }}>
+                <span className="block">Tu n'as pas besoin de plus.</span>
+                <span className="block mt-2">Tu as besoin d'une <span className="font-accented text-[#2545FF]">compétence</span>.</span>
               </h2>
-              <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-xl mx-auto mb-8 leading-relaxed">
-                Rejoins les entrepreneurs africains qui ont choisi la clarté et attirent désormais leurs clients avec un profil magnétique.
+              <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-xl mx-auto mb-8 leading-relaxed">
+                Un positionnement clair. Un profil qui attire naturellement les bons clients.
               </p>
               <div className="flex justify-center">
                 <button
                   onClick={() => scrollToSection('offres')}
-                  className="px-8 py-4 text-base font-bold text-white bg-[#FF5500] hover:bg-[#E64D00] rounded-xl transition-all shadow-[0_0_30px_rgba(255,85,0,0.35)] hover:shadow-[0_0_40px_rgba(255,85,0,0.55)] flex items-center gap-2 group cursor-pointer"
+                  className="px-8 py-4 text-base font-bold text-white bg-[#2545FF] hover:bg-[#1B36D4] rounded-xl transition-all shadow-[0_0_30px_rgba(37,69,255,0.4)] hover:shadow-[0_0_45px_rgba(37,69,255,0.6)] flex items-center gap-2 group cursor-pointer"
                 >
                   <span>Découvrir mes options</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -815,7 +862,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <span className="font-display font-extrabold text-white text-lg tracking-tight">Focus</span>
-            <span className="text-[#FF5500] font-display font-extrabold text-lg tracking-tight">One</span>
+            <span className="text-[#2545FF] font-display font-extrabold text-lg tracking-tight">One</span>
             <span className="text-slate-600 ml-2">·</span>
             <span className="text-slate-400">Pour les entrepreneurs digitaux africains</span>
           </div>
@@ -831,7 +878,7 @@ export default function App() {
               href="https://wa.me/?text=Bonjour%20Focus%20One,%20j%27aimerais%20en%20savoir%20plus" 
               target="_blank" 
               rel="noreferrer" 
-              className="hover:text-[#FF5500] transition-colors flex items-center gap-1.5"
+              className="hover:text-[#2545FF] transition-colors flex items-center gap-1.5"
             >
               <MessageCircle className="w-3.5 h-3.5" />
               <span>Support WhatsApp</span>
@@ -844,10 +891,10 @@ export default function App() {
         </div>
       </footer>
 
-      {/* CHECKOUT / ACTION MODAL */}
+      {/* CHECKOUT / ACTION MODAL WITH GLASSMORPHISM */}
       {selectedOffer && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-[#12141D] border border-white/15 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl animate-in fade-in duration-200">
+          <div className="glass-modal rounded-3xl max-w-lg w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
             {/* Close button */}
             <button
               onClick={() => setSelectedOffer(null)}
@@ -859,62 +906,21 @@ export default function App() {
 
             {!orderSuccess ? (
               <div>
-                <div className="flex items-center gap-2 text-xs font-bold text-[#FF5500] uppercase tracking-wider mb-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#2545FF] uppercase tracking-wider mb-2">
                   <Sparkles className="w-4 h-4" />
                   <span>Validation de commande</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white font-display mb-1">
+                <h3 className="text-2xl font-bold text-white mb-1">
                   {selectedOffer.name}
                 </h3>
                 <p className="text-slate-400 text-xs mb-6">
                   {selectedOffer.tagline}
                 </p>
 
-                {/* Special notification banner for Offer 1 */}
-                {selectedOffer.id === 'skill' && (
-                  <div className="mb-6 p-4 rounded-2xl bg-[#FF5500]/10 border border-[#FF5500]/30 text-left">
-                    <div className="flex items-center gap-2 text-xs font-bold text-[#FF5500] uppercase tracking-wider mb-2">
-                      <KeyRound className="w-4 h-4" />
-                      <span>Accès Ikigai immédiat</span>
-                    </div>
-                    <p className="text-xs text-slate-200 leading-relaxed mb-3 font-medium">
-                      voici ton accès à Ikigai. A présent clique sur ce lien et entre ce code . ensuite suis les directives de l'assistant pour trouver ta compétence
-                    </p>
-                    <div className="space-y-2 pt-2 border-t border-[#FF5500]/20 text-xs">
-                      <div className="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-[#090A0E] border border-white/10">
-                        <span className="text-slate-400">Code à entrer :</span>
-                        <div className="flex items-center gap-2">
-                          <code className="font-mono font-bold text-[#FF5500] tracking-wider text-sm px-1.5 py-0.5 rounded bg-white/5">
-                            {IKIGAI_CODE}
-                          </code>
-                          <button
-                            type="button"
-                            onClick={handleCopyCode}
-                            className="p-1 hover:text-white text-slate-400 transition-colors"
-                            title="Copier le code"
-                          >
-                            {copiedCode ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                          </button>
-                        </div>
-                      </div>
-
-                      <a
-                        href={IKIGAI_LINK}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-2.5 px-3 rounded-lg bg-[#FF5500] hover:bg-[#E64D00] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm"
-                      >
-                        <span>Cliquer ici pour accéder à l'assistant Ikigai</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    </div>
-                  </div>
-                )}
-
                 {/* Price summary */}
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 flex items-center justify-between">
+                <div className="p-4 rounded-2xl glass-chip mb-6 flex items-center justify-between">
                   <span className="text-sm text-slate-300">Total à régler (unique)</span>
-                  <span className="text-2xl font-black text-white font-display">{selectedOffer.price}</span>
+                  <span className="text-2xl font-black text-white font-numbers">{selectedOffer.price}</span>
                 </div>
 
                 <form onSubmit={handleOrderSubmit} className="space-y-4">
@@ -928,7 +934,7 @@ export default function App() {
                       placeholder="Ex: David Traoré"
                       value={orderName}
                       onChange={(e) => setOrderName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-[#090A0E] border border-white/15 text-white text-sm focus:outline-none focus:border-[#FF5500] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl glass-input text-white text-sm focus:outline-none focus:border-[#2545FF] transition-colors"
                     />
                   </div>
 
@@ -942,7 +948,7 @@ export default function App() {
                       placeholder="Ex: +221 77 000 00 00 / +225 07..."
                       value={orderPhone}
                       onChange={(e) => setOrderPhone(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-[#090A0E] border border-white/15 text-white text-sm focus:outline-none focus:border-[#FF5500] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl glass-input text-white text-sm focus:outline-none focus:border-[#2545FF] transition-colors"
                     />
                   </div>
 
@@ -952,31 +958,35 @@ export default function App() {
                     </label>
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       {[
-                        { id: 'wave', label: 'Wave' },
-                        { id: 'orange', label: 'Orange Money' },
-                        { id: 'mtn', label: 'MTN MoMo' },
-                        { id: 'card', label: 'Carte Bancaire' }
-                      ].map((item) => (
-                        <button
-                          key={item.id}
-                          type="button"
-                          onClick={() => setPaymentMethod(item.id as any)}
-                          className={`p-3 rounded-xl text-left border transition-all cursor-pointer ${
-                            paymentMethod === item.id
-                              ? 'bg-[#FF5500]/15 border-[#FF5500] text-white font-semibold'
-                              : 'bg-white/5 border-white/10 text-slate-300 hover:border-white/20'
-                          }`}
-                        >
-                          {item.label}
-                        </button>
-                      ))}
+                        { id: 'wave', label: 'Wave', icon: WaveLogo },
+                        { id: 'orange', label: 'Orange Money', icon: OrangeMoneyLogo },
+                        { id: 'mtn', label: 'MTN MoMo', icon: MTNMoMoLogo },
+                        { id: 'card', label: 'Carte Bancaire', icon: VisaLogo }
+                      ].map((item) => {
+                        const PaymentIcon = item.icon;
+                        return (
+                          <button
+                            key={item.id}
+                            type="button"
+                            onClick={() => setPaymentMethod(item.id as any)}
+                            className={`p-3 rounded-xl text-left border transition-all cursor-pointer flex items-center gap-2.5 ${
+                              paymentMethod === item.id
+                                ? 'bg-[#2545FF]/20 border-[#2545FF] text-white font-semibold shadow-[0_0_15px_rgba(37,69,255,0.25)]'
+                                : 'glass-chip text-slate-300 hover:border-white/20'
+                            }`}
+                          >
+                            <PaymentIcon className="w-5 h-5 shrink-0 rounded-md shadow-sm" />
+                            <span className="truncate">{item.label}</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 
                   <div className="pt-2 space-y-3">
                     <button
                       type="submit"
-                      className="w-full py-4 text-center font-bold text-white bg-[#FF5500] hover:bg-[#E64D00] rounded-xl transition-all shadow-[0_0_20px_rgba(255,85,0,0.3)] cursor-pointer text-sm"
+                      className="w-full py-4 text-center font-bold text-white bg-[#2545FF] hover:bg-[#1B36D4] rounded-xl transition-all shadow-[0_0_20px_rgba(37,69,255,0.35)] cursor-pointer text-sm"
                     >
                       Confirmer ma commande ({selectedOffer.price})
                     </button>
@@ -985,7 +995,7 @@ export default function App() {
                       href={`https://wa.me/?text=Bonjour,%20je%20souhaite%20commander%20l%27offre%20"${encodeURIComponent(selectedOffer.name)}"%20à%20${encodeURIComponent(selectedOffer.price)}%20sur%20Focus%20One`}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full py-3 text-center font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs"
+                      className="w-full py-3 text-center font-medium text-slate-300 hover:text-white glass-chip rounded-xl transition-colors flex items-center justify-center gap-2 text-xs"
                     >
                       <MessageCircle className="w-4 h-4 text-emerald-400" />
                       <span>Commander directement par WhatsApp</span>
@@ -998,7 +1008,7 @@ export default function App() {
                 <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-4">
                   <Check className="w-8 h-8" />
                 </div>
-                <h4 className="text-2xl font-bold text-white font-display mb-2">
+                <h4 className="text-2xl font-bold text-white mb-2">
                   Commande initiée avec succès !
                 </h4>
                 <p className="text-slate-300 text-sm leading-relaxed mb-6">
@@ -1006,19 +1016,19 @@ export default function App() {
                 </p>
 
                 {(selectedOffer.id === 'skill' || selectedOffer.id === 'bundle') && (
-                  <div className="mb-6 p-4 rounded-2xl bg-[#FF5500]/10 border border-[#FF5500]/30 text-left">
-                    <div className="flex items-center gap-2 text-xs font-bold text-[#FF5500] uppercase tracking-wider mb-2">
+                  <div className="mb-6 p-4 rounded-2xl glass-chip border border-[#2545FF]/40 text-left">
+                    <div className="flex items-center gap-2 text-xs font-bold text-[#2545FF] uppercase tracking-wider mb-2">
                       <KeyRound className="w-4 h-4" />
                       <span>Accès Ikigai immédiat</span>
                     </div>
                     <p className="text-xs text-slate-200 leading-relaxed mb-3">
                       voici ton accès à Ikigai. A présent clique sur ce lien et entre ce code . ensuite suis les directives de l'assistant pour trouver ta compétence
                     </p>
-                    <div className="space-y-2 pt-2 border-t border-[#FF5500]/20 text-xs">
-                      <div className="flex items-center justify-between gap-2 p-2 rounded-lg bg-[#090A0E] border border-white/10">
+                    <div className="space-y-2 pt-2 border-t border-[#2545FF]/25 text-xs">
+                      <div className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-black/40 border border-white/10">
                         <span className="text-slate-400">Code à entrer :</span>
                         <div className="flex items-center gap-2">
-                          <code className="font-mono font-bold text-[#FF5500] tracking-wider text-sm px-1.5 py-0.5 rounded bg-white/5">
+                          <code className="font-numbers font-bold text-[#2545FF] tracking-wider text-sm px-1.5 py-0.5 rounded bg-white/5">
                             {IKIGAI_CODE}
                           </code>
                           <button
@@ -1036,7 +1046,7 @@ export default function App() {
                         href={IKIGAI_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-2.5 px-3 rounded-lg bg-[#FF5500] hover:bg-[#E64D00] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                        className="w-full py-2.5 px-3 rounded-lg bg-[#2545FF] hover:bg-[#1B36D4] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm"
                       >
                         <span>Cliquer ici pour accéder à l'assistant Ikigai</span>
                         <ExternalLink className="w-3.5 h-3.5" />
